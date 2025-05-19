@@ -309,6 +309,7 @@ if page == "🌸Applications with Dataset":
         st.subheader("Prediction with Deep Learning Algorithms")
         plot_type_dl = st.selectbox("Choose an algorithm", ["MLP Fully Connected Neural Network", "ANN with Dropout"])
         import tensorflow as tf
+        from tensorflow import keras
         from tensorflow.keras.models import Sequential
         from tensorflow.keras.layers import Dense, Dropout
         from tensorflow.keras.optimizers import Adam
