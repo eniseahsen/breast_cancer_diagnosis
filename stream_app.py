@@ -387,6 +387,8 @@ if page == "🌸Applications with Dataset":
                     ax.plot(history.history["val_accuracy"], label="Validation Accuracy")
                     ax.legend()
                     st.pyplot(fig)
+
+#**************************************************************** PREDICTION SAYFASİ ***************************************************************************************
 if page == "🌸Prediction":
     model = joblib.load("logistic_modelfinal.pkl")
     scaler = joblib.load("scaler.pkl")
@@ -417,6 +419,5 @@ if page == "🌸Prediction":
             st.error("Prediction: Malignant ")
         else:
             st.success("Prediction: Bening")
-
 
     st.write("While this appa aid in diagnosis, it is not a replacement for a professional medical evaluation.")
