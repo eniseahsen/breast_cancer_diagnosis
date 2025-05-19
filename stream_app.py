@@ -13,10 +13,11 @@ from sklearn.neighbors import KNeighborsClassifier
 from xgboost import XGBClassifier
 from sklearn.naive_bayes import GaussianNB
 import joblib
-#ff9999
+
 
 st.markdown('<h1 style="text-align:center;color:#e85a79;font-weight:bolder;font-size:40px;">Breast Health Diagnostic App</h1>',unsafe_allow_html=True)
-#st.markdown("This application performs visualization and prediction tasks using the Breast Cancer Wisconsin (Diagnostic) dataset.")
+
+#arka plan wall paper
 def add_bg_from_url():
     st.markdown(
          f"""
@@ -33,6 +34,7 @@ def add_bg_from_url():
 
 add_bg_from_url()
 
+#renkli sidebar
 st.markdown("""
     <style>
         [data-testid="stSidebar"] {
@@ -41,6 +43,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+#veri yükleme
 @st.cache_data
 def load_data():
     df = pd.read_csv("data.csv")
@@ -51,11 +54,11 @@ df = load_data()
 
 
 page = st.sidebar.selectbox("Menu", ["🌸Welcome","🌸Breast Cancer","🌸Dictionary","🌸Applications with Dataset", "🌸Prediction"])
+#**************************************************************** WELCOME SAYFASİ ***************************************************************************************
 if page == "🌸Welcome":
     st.markdown(
         '<h1 style="text-align:center;color:#ff9999;font-weight:bolder;font-size:30px;">🌸 Welcome 🌸</h1>',
         unsafe_allow_html=True)
-    #st.write("")
     st.markdown("""
     <div style='font-size:18px'>
     This app helps you explore breast cancer data and understand the differences between 
@@ -70,7 +73,7 @@ if page == "🌸Welcome":
     st.markdown(
         '<h1 style="text-align:center;color:#ff9999;font-weight:bolder;font-size:30px;">Don’t Wait – Check, Detect, Protect !</h1>',
         unsafe_allow_html=True)
-
+#**************************************************************** BREAST CANCER SAYFASİ ***************************************************************************************
 if page == "🌸Breast Cancer":
     st.markdown("""
         <div style='font-size:18px'>
@@ -83,7 +86,7 @@ if page == "🌸Breast Cancer":
         <font color='#e85a79'><b>Remember: early detection saves lives.</b></font> 
         </div>
         """, unsafe_allow_html=True)
-
+#**************************************************************** DICTIONARY SAYFASİ ***************************************************************************************
 if page == "🌸Dictionary":
     st.markdown("<h3 style='color: #F08080;'>Data Dictionary</h2>", unsafe_allow_html=True)
     data_dict_en = {
@@ -123,14 +126,10 @@ if page == "🌸Dictionary":
     data_en_df = pd.DataFrame(data_dict_en.items(),columns=["Feature","Description"])
     st.dataframe(data_en_df.style.set_table_styles(
         [{'selector': 'td', 'props': [('white-space', 'nowrap')]}]
-    ))
-    #st.table(data_en_df)
+    )) #td: hücre  nowrap: metin taşarsa kaydırma çubuğu gelir, alt satıra geçmez
+    #st.table(data_en_df) #farklı bir format
 
-
-
-
-
-
+#**************************************************************** APPLICATIONS WITH DATASET SAYFASİ ***************************************************************************************
 if page == "🌸Applications with Dataset":
     menu = st.selectbox("Please Select", ["Dataset Preview", "Data Visualization", "Machine Learning Applications",
                                            "Deep Learning Applications"])
@@ -175,7 +174,7 @@ if page == "🌸Applications with Dataset":
                 "A pairplot to visualize the relationships between selected features like radius mean, texture mean, perimeter mean, area mean, and smoothness mean and their correlation with the diagnosis (malignant or benign).")
             features = ['radius_mean', 'texture_mean', 'perimeter_mean', 'area_mean', 'smoothness_mean']
             fig2 = sns.pairplot(df[features + ["diagnosis"]], hue="diagnosis", palette="Set2")
-            fig2.fig.suptitle("Pairplot of Selected Features", y=1.02)
+            fig2.fig.suptitle("Pairplot of Selected Features", y=1.02) #y: başlığın dikey eksendeki konumu
             st.pyplot(fig2)
 
         elif plot_type == "Boxplot":
@@ -216,7 +215,7 @@ if page == "🌸Applications with Dataset":
             st.write(
                 "Visualizing the correlation of each feature with the diagnosis variable.This helps identify the most predictive features for distinguishing between benign and malignant tumors.")
             corr_matrix = df_corr.corr()
-            diagnosis_corr = corr_matrix["diagnosis"].drop("diagnosis").sort_values(key=lambda x: abs(x),
+            diagnosis_corr = corr_matrix["diagnosis"].drop("diagnosis").sort_values(key=lambda x: abs(x), #key'e göre sıralar
                                                                                     ascending=False)
             fig6, ax6 = plt.subplots(figsize=(24, 20))
             sns.heatmap(diagnosis_corr.to_frame(), annot=True, cmap="coolwarm", ax=ax6)
@@ -291,7 +290,7 @@ if page == "🌸Applications with Dataset":
             report_df = pd.DataFrame(report_dict).transpose()
 
             st.subheader("Classification Report")
-            st.table(report_df.round(2))
+            st.table(report_df.round(2)) #round2: virgülden sonra 2 basamak
 
             st.write(
                 "**M: 1 (*Malignant*)**")
@@ -392,7 +391,7 @@ if page == "🌸Prediction":
     model = joblib.load("logistic_modelfinal.pkl")
     scaler = joblib.load("scaler.pkl")
 
-    st.write("Enter the values below to predict whether the tumor is benign or malignant.")
+    st.write("Select the values below to predict whether the tumor is benign or malignant.")
     feature_names = [
         'radius_mean', 'texture_mean', 'perimeter_mean', 'area_mean', 'smoothness_mean',
         'compactness_mean', 'concavity_mean', 'concave points_mean', 'symmetry_mean', 'fractal_dimension_mean',
@@ -420,4 +419,4 @@ if page == "🌸Prediction":
             st.success("Prediction: Bening")
 
 
-    st.write("While this app can aid in diagnosis, it is not a replacement for a professional medical evaluation.")
+    st.write("While this appa aid in diagnosis, it is not a replacement for a professional medical evaluation.")
