@@ -39,12 +39,29 @@ Aşağıdaki adımları izleyerek projeyi yerel ortamınızda çalıştırabilir
 
 ### 1. Depoyu Klonlayın
 ```bash
-git clone https://github.com/kullanici-adi/proje-adi.git
-cd proje-adi
+git clone https://github.com/eniseahsen/breast_cancer_diagnosis.git
+cd breast_cancer_diagnosis
 ```
 
 ### 2. Sanal Ortam Oluşturun
+# Widnows için
 ```bash
 python -m venv envs
 ```
-
+# macOS/Linux için
+```bash
+python3 -m venv envs
+source envs/bin/activate
+```
+### 3. Gerekli Kütüphaneleri Kurun
+```bash
+pip install -r requirements.txt
+```
+### 4. Uygulamayı Başlatın
+```bash
+streamlit run stream_app.py
+```
+# veya
+```bash
+ python -m streamlit run stream_app.py
+```
