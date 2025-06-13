@@ -44,11 +44,11 @@ cd breast_cancer_diagnosis
 ```
 
 ### 2. Sanal Ortam Oluşturun
-# Widnows için
+*Widnows için*
 ```bash
 python -m venv envs
 ```
-# macOS/Linux için
+*macOS/Linux için*
 ```bash
 python3 -m venv envs
 source envs/bin/activate
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 ```bash
 streamlit run stream_app.py
 ```
-# veya
+ *veya*
 ```bash
  python -m streamlit run stream_app.py
 ```
