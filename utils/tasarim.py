@@ -1,9 +1,9 @@
+#sayfa tasarımı için gerekli fonksiyonlar
 import streamlit as st
-
-def set_page_config():
+def set_page_config(): #sayfa başlığı
     st.markdown('<h1 style="text-align:center;color:#e85a79;font-weight:bolder;font-size:40px;">Breast Health Diagnostic App</h1>', unsafe_allow_html=True)
 
-def add_background():
+def add_background(): #arka plan görseli
     st.markdown(
          f"""
          <style>
@@ -17,7 +17,7 @@ def add_background():
          unsafe_allow_html=True
     )
 
-def style_sidebar():
+def style_sidebar(): #sidebar tasarımı
     st.markdown("""
         <style>
             [data-testid="stSidebar"] {

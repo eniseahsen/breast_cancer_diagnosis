@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-
+#veri çağırma ve preprocessing fonksiyonu
 @st.cache_data
 def load_data():
     df = pd.read_csv("data.csv")
