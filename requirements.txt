@@ -1,10 +1,9 @@
-streamlit>=1.20.0
+streamlit==1.45.1
 scikit-learn
 pandas
 numpy
 joblib
 seaborn
 matplotlib
-markdown
 xgboost
 tensorflow==2.19.0
