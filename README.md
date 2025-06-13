@@ -38,13 +38,13 @@ Bu proje, **Breast Cancer Wisconsin (Diagnostic) Data Set** kullanılarak geliş
 Aşağıdaki adımları izleyerek projeyi yerel ortamınızda çalıştırabilirsiniz:
 
 ### 1. Depoyu Klonlayın
-'''bash
+```bash
 git clone https://github.com/kullanici-adi/proje-adi.git
 cd proje-adi
-'''
+```
 
 ### 2. Sanal Ortam Oluşturun
 ```bash
 python -m venv envs
-
+```
 
