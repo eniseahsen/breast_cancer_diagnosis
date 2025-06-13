@@ -1,11 +1,10 @@
-# breast_cancer_diagnosis
 # Breast Health Diagnostic App
 
 Bu proje, **Breast Cancer Wisconsin (Diagnostic) Data Set** kullanılarak geliştirilmiş bir meme kanseri teşhis uygulamasıdır. Kullanıcılar, tümör özelliklerini girerek bu tümörün **malign (kötü huylu)** ya da **benign (iyi huylu)** olup olmadığını öğrenebilir. Ayrıca farklı makine öğrenimi modelleriyle tahmin yapılabilir, veriler görselleştirilebilir ve derin öğrenme ile daha güçlü tahminler alınabilir.
 
 ---
 
-## 🚀 Özellikler
+##  Özellikler
 
 - Gelişmiş veri görselleştirme (korelasyon haritası, dağılım, histogramlar)
 - Farklı makine öğrenimi modelleriyle karşılaştırmalı tahminler:
@@ -42,3 +41,9 @@ Aşağıdaki adımları izleyerek projeyi yerel ortamınızda çalıştırabilir
 ```bash
 git clone https://github.com/kullanici-adi/proje-adi.git
 cd proje-adi
+
+### 2. Sanal Ortam Oluşturun
+```bash
+python -m venv envs
+
+
