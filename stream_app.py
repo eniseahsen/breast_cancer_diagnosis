@@ -13,45 +13,13 @@ from sklearn.neighbors import KNeighborsClassifier
 from xgboost import XGBClassifier
 from sklearn.naive_bayes import GaussianNB
 import joblib
-
-
-st.markdown('<h1 style="text-align:center;color:#e85a79;font-weight:bolder;font-size:40px;">Breast Health Diagnostic App</h1>',unsafe_allow_html=True)
-
-#arka plan wall paper
-def add_bg_from_url():
-    st.markdown(
-         f"""
-         <style>
-         .stApp {{
-             background-image: url("https://i.pinimg.com/736x/b2/a6/bb/b2a6bb4de0bb37d74cafff4232f8ad70.jpg");
-             background-attachment: fixed;
-             background-size: cover
-         }}
-         </style>
-         """,
-         unsafe_allow_html=True
-    )
-
-add_bg_from_url()
-
-#renkli sidebar
-st.markdown("""
-    <style>
-        [data-testid="stSidebar"] {
-            background-color: #ffe6e6;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-#veri yükleme
-@st.cache_data
-def load_data():
-    df = pd.read_csv("data.csv")
-    df.drop(['Unnamed: 32', 'id'], axis=1, inplace=True)
-    return df
-
+from utils.tasarim import set_page_config, add_background, style_sidebar
+from utils.data import load_data
+#yardımcı fonksiyonlar çağırılır
+set_page_config()
+add_background()
+style_sidebar()
 df = load_data()
-
 
 page = st.sidebar.selectbox("Menu", ["🌸Welcome","🌸Breast Cancer","🌸Dictionary","🌸Applications with Dataset", "🌸Prediction"])
 #**************************************************************** WELCOME SAYFASİ ***************************************************************************************
